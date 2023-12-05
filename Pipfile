@@ -15,6 +15,7 @@ pypdf = "*"
 sentence-transformers = "*"
 chromadb = "==0.4.15"
 ibm-generative-ai = "*"
+mteb = "*"
 
 [dev-packages]
 black="*"
