@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+langchain = "*"
+streamlit = "*"
+openai = "*"
+tiktoken = "*"
+python-dotenv = "*"
+unstructured = "*"
+pinecone-client = "*"
+pypdf = "*"
+sentence-transformers = "*"
+chromadb = "==0.4.15"
+ibm-generative-ai = "*"
+
+[dev-packages]
+black="*"
+
+[requires]
+python_version = "3.9"
