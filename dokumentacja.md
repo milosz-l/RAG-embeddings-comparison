@@ -33,7 +33,6 @@ RAG łączy procesy odzyskiwania informacji (Retrieval) i generacji tekstu (Gene
 3. **Generacja Tekstu (Generation)**:
     - Pobrane *k* najbardziej podobnych elementów jest łączone z zapytaniem użytkownika.
 	- Tak przygotowane zapytanie użytkownika wraz z pobranym kontekstem jest wykorzystywane przez model generacji tekstu, aby stworzyć nową, spójną odpowiedź.
-	- W tym projekcie do generacji tekstu wykorzystywany jest model *google/flan-ul2*.
 	- Ta odpowiedź jest następnie przekazywana użytkownikowi jako końcowy produkt działania systemu RAG.
 
 
@@ -64,29 +63,29 @@ Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz M
     - Ocenia średnią dokładność w kontekście wielu zapytań, co jest ważne w ewaluacji skuteczności odzyskiwania informacji.
 
 ## Przykładowe modele embeddingowe
-- **BERT (Bidirectional Encoder Representations from Transformers)**:
+- **BERT (Bidirectional Encoder Representations from Transformers)** [10]:
     - BERT jest jednym z najbardziej znanych modeli do generowania embeddingów. Jest on szczególnie efektywny w rozumieniu kontekstu, co może być kluczowe w metodzie RAG.
-    - Na przykład: `bert-base-uncased`, `bert-large-uncased`.
 
-- **GPT-2/GPT-3 (Generative Pretrained Transformer 2/3)**:
+
+- **GPT-2/GPT-3 (Generative Pretrained Transformer 2/3)** [11]:
     - Te modele, znane z generowania spójnego i kontekstowego tekstu, mogą być użyteczne do badania, jak generatywne embeddingi wpływają na proces generacji w RAG.
-    - Na przykład: `gpt2`, `EleutherAI/gpt-neo-2.7B`.
 
-- **RoBERTa (A Robustly Optimized BERT Pretraining Approach)**:
+
+- **RoBERTa (A Robustly Optimized BERT Pretraining Approach)** [12]:
     - RoBERTa jest wariantem BERT, który został zoptymalizowany pod kątem większej dokładności. Może to zapewnić interesujące porównanie z tradycyjnym BERT-em.
-    - Na przykład: `roberta-base`, `roberta-large`.
 
-- **DistilBERT (Distilled Version of BERT)**:
+
+- **DistilBERT (Distilled Version of BERT)** [13]:
     - Jest to uproszczona i bardziej efektywna wersja BERT-a pod względem obliczeniowym, co może być istotne w zastosowaniach, gdzie szybkość jest kluczowa.
-    - Na przykład: `distilbert-base-uncased`.
 
-- **T5 (Text-To-Text Transfer Transformer)**:
+
+- **T5 (Text-To-Text Transfer Transformer)** [14]:
     - T5 jest wszechstronnym modelem, który traktuje każde zadanie NLP jako zadanie konwersji tekstu na tekst, co może być interesujące w kontekście RAG.
-    - Na przykład: `t5-small`, `t5-base`.
 
-- **ALBERT (A Lite BERT)**:
+
+- **ALBERT (A Lite BERT)** [15]:
    - ALBERT to uproszczona wersja BERT-a, która została opracowana przez Google w celu radzenia sobie z problemami wynikającymi z dużych rozmiarów modelu. Używa ona technik redukcji parametrów, co może być korzystne w kontekście efektywności obliczeniowej i skalowalności systemu RAG.
-   - Na przykład: `albert-base-v2`, `albert-large-v2`.
+
 
 Wyżej wymienione przykładowe modele w większości zostały już uwzględnione w benchmarku MTEB. W związku z tym na platformie HuggingFace postaramy się znaleźć mniej znany model, który jeszcze nie został uwzględniony w benchmarku MTEB, a który naszym zdaniem ma szanse uzyskać sensowne wyniki.
 
@@ -101,7 +100,7 @@ Co ciekawe w leaderboardzie benchmarku MTEB w kategorii Retrieval wyróżnione s
 ## Źródła:
 [1] Andrew Rosenberg and Julia Hirschberg. 2007. Vmeasure: A conditional entropy-based external cluster evaluation measure. pages 410–420.
 
-[2] https://arxiv.org/abs/2210.07316
+[2] Muennighoff, Niklas, Nouamane Tazi, Loïc Magne, i Nils Reimers. "MTEB: Massive Text Embedding Benchmark." ArXiv:2210.07316.
 
 [3] Nandan Thakur, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. 2021. Beir: A heterogenous benchmark for zero-shot evaluation of information retrieval models
 
@@ -115,4 +114,16 @@ Co ciekawe w leaderboardzie benchmarku MTEB w kategorii Retrieval wyróżnione s
 
 [8] Lewis, Patrick, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler et al. "Retrieval-augmented generation for knowledge-intensive nlp tasks." Advances in Neural Information Processing Systems 33 (2020): 9459-9474.
 
-[9] https://arxiv.org/abs/2305.19840
+[9] "BEIR-PL: Zero Shot Information Retrieval." ArXiv:2305.19840.
+
+[10] Devlin, Jacob, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding." ArXiv:1810.04805.
+
+[11] Radford, Alec, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. "Language Models are Unsupervised Multitask Learners." OpenAI.
+
+[12] Liu, Yinhan, Danqi Chen, et al. "RoBERTa: A Robustly Optimized BERT Pretraining Approach." ArXiv:1907.11692.
+
+[13] Sanh, Victor, Lysandre Debut, Julien Chaumond, and Thomas Wolf. "DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter." ArXiv:1910.01108.
+
+[14] Raffel, Colin, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, and Peter J. Liu. "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer." Google, Mountain View, CA. ArXiv:1910.10683.
+
+[15] Lan, Zhenzhong, Piyush Sharma, et al. "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations." Google AI. ArXiv:1909.11942.
