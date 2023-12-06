@@ -16,7 +16,7 @@ Zakres projektu:
 Jest to skrót od "Retrieval-Augmented Generation", czyli w tłumaczeniu na polski "Generacja z użyciem mechanizmu odzyskiwania". RAG jest często wykorzystywany w zadaniach związanych z przetwarzaniem języka naturalnego, takich jak systemy odpowiadające na pytania, generatory tekstu czy też w systemach dialogowych. Wdrażanie takiego systemu może przyczynić się do lepszej skuteczności i dostarczenia bardziej trafnych oraz aktualnych odpowiedzi w kontekście danego zadania. [7, 8]
 
 ### Jak działa RAG?
-![RAG [6]](assets/1695787886133.png)
+![RAG [6]](assets/rag.png)
 
 RAG łączy procesy odzyskiwania informacji (Retrieval) i generacji tekstu (Generation). Działanie RAG można podzielić na kilka kluczowych etapów:
 
@@ -45,7 +45,7 @@ Metodę RAG można ewaluować względem następujących aspektów:
     - Generation Faithfullness (wierność generacji)
     - Generation Relevance (znaczenie generacji)
 
-![RAG - ewaluacja [5]](assets/1*4O0q0SV8d1SpcbkIpZbEIw.webp)
+![RAG - ewaluacja [5]](assets/rag_circles.png)
 
 Chcąc ewaluować RAG całościowo, możemy patrzeć na średnią harmoniczną powyższych czterech metryk. W taki sposób działa metoda **ragas score** [4]. W tym projekcie skupimy się natomiast przede wszystkim na ewaluacji odzyskiwania informacji (Retrieval). Oczywiście zarówno aspekt Retrieval jak i Generation są niezwykle istotne, natomiast w naszym przypadku, tj. w przypadku badania wpływu różnych embeddingów, szczególnie interesującym będzie właśnie aspekt Retrieval.
 
