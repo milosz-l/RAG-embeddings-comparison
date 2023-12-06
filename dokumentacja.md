@@ -10,22 +10,22 @@ Główne cele projektu:
 
 
 ## Czym jest RAG?
-Jest to skrót od "Retrieval-Augmented Generation", czyli w tłumaczeniu na polski "Generacja z użyciem mechanizmu odzyskiwania". RAG jest często wykorzystywany w zadaniach związanych z przetwarzaniem języka naturalnego, takich jak systemy odpowiadające na pytania, generatory tekstu czy też w systemach dialogowych. Wdrażanie takiego systemu może przyczynić się do lepszej skuteczności i dostarczenia bardziej trafnych oraz aktualnych odpowiedzi w kontekście danego zadania.
+Jest to skrót od "Retrieval-Augmented Generation", czyli w tłumaczeniu na polski "Generacja z użyciem mechanizmu odzyskiwania". RAG jest często wykorzystywany w zadaniach związanych z przetwarzaniem języka naturalnego, takich jak systemy odpowiadające na pytania, generatory tekstu czy też w systemach dialogowych. Wdrażanie takiego systemu może przyczynić się do lepszej skuteczności i dostarczenia bardziej trafnych oraz aktualnych odpowiedzi w kontekście danego zadania. [7, 8]
 
 ### Jak działa RAG?
 ![RAG [6]](assets/1695787886133.png)
 
 RAG łączy procesy odzyskiwania informacji (Retrieval) i generacji tekstu (Generation). Działanie RAG można podzielić na kilka kluczowych etapów:
 
-0. **Utworzenie wektorowej bazy danych**:
-    - Podstawą jest zapewnienie wektorowej bazy danych zawierającej embeddingi naszej bazy wiedzy.
+0. **Utworzenie bazy wiedzy**:
+    - Podstawą jest utworzenie bazy wiedzy do przeszukiwania w kontekście zapytań użytkownika. W naszym projekcie jej realizacja będzie miała postać bazy wektorowej zawierającej embeddingi pochodzące z dokumentów PDF zapewnionych przez użytkownika.
 
 1. **Zapytanie Użytkownika**:
     - Zapytanie użytkownika jest przekazywane do systemu RAG. Zapytanie to może być pytaniem, prośbą o wygenerowanie tekstu lub jakimkolwiek innym promptem.
 
-2. **Odzyskiwanie Informacji (Retrieval)**: 
+2. **Odzyskiwanie Informacji (Retrieval)**:
     - Zapytanie użytkownika zostaje zembeddowane do bazy wektorowej. W tym kroku należy pamiętać aby wykorzystać ten sam model, którego wcześniej użyliśmy do utworzenia wektorowej bazy danych.
-    - System pobiera *k* najbardziej podobnych elementów z bazy wektorowej. Do znalezienia najbardziej podobnych elementów pod względem semantycznym wykorzystywana jest odległość cosinusowa (cosine similarity).
+    - System pobiera *k* najbardziej podobnych elementów z bazy wektorowej. Do znalezienia najbardziej podobnych elementów pod względem semantycznym wykorzystywana jest najczęściej odległość cosinusowa (cosine similarity).
 
 3. **Generacja Tekstu (Generation)**:
     - Pobrane *k* najbardziej podobnych elementów jest łączone z zapytaniem użytkownika.
@@ -61,7 +61,7 @@ Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz M
     - Ocenia średnią dokładność w kontekście wielu zapytań, co jest ważne w ewaluacji skuteczności odzyskiwania informacji.
 
 ## Testowane embeddingi
-- **BERT (Bidirectional Encoder Representations from Transformers)**: 
+- **BERT (Bidirectional Encoder Representations from Transformers)**:
     - BERT jest jednym z najbardziej znanych modeli do generowania embeddingów. Jest on szczególnie efektywny w rozumieniu kontekstu, co może być kluczowe w metodzie RAG.
     - Na przykład: `bert-base-uncased`, `bert-large-uncased`.
 
@@ -93,8 +93,17 @@ Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz M
 
 ## Źródła:
 [1] Andrew Rosenberg and Julia Hirschberg. 2007. Vmeasure: A conditional entropy-based external cluster evaluation measure. pages 410–420.
+
 [2] https://arxiv.org/abs/2210.07316
+
 [3] Nandan Thakur, Nils Reimers, Andreas Rücklé, Abhishek Srivastava, and Iryna Gurevych. 2021. Beir: A heterogenous benchmark for zero-shot evaluation of information retrieval models
+
 [4] https://blog.langchain.dev/evaluating-rag-pipelines-with-ragas-langsmith/
+
 [5] https://cobusgreyling.medium.com/rag-evaluation-9813a931b3d4
+
 [6] https://www.linkedin.com/pulse/what-retrieval-augmented-generation-grow-right/
+
+[7] Thulke, David, Nico Daheim, Christian Dugast and Hermann Ney. “Efficient Retrieval Augmented Generation from Unstructured Knowledge for Task-Oriented Dialog.” ArXiv abs/2102.04643 (2021): n. pag.
+
+[8] Lewis, Patrick, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler et al. "Retrieval-augmented generation for knowledge-intensive nlp tasks." Advances in Neural Information Processing Systems 33 (2020): 9459-9474.
