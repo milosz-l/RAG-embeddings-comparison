@@ -5,16 +5,12 @@ Główne cele projektu:
 1. Analiza podejścia Retrieval Augmented Generation.
 2. Zdefiniowanie testowanych embeddingów.
 3. Zdefiniowanie metod ewaluacji skuteczności działania metody RAG.
-4. Badanie wpływu różnych embeddingów na działanie metody RAG.
-5. Wnioski.
+4. Implementacja środowiska badającego wpływ różnych embeddingów na działanie metody RAG.
+5. Analiza wyników i wnioski.
 
 
 ## Czym jest RAG?
-RAG jest jednym z najbardziej komercjalizowanych obszarów zastosowań generatywnej sztucznej inteligencji. Jest to skrót od "Retrieval-Augmented Generation," czyli w tłumaczeniu na polski "Generacja z użyciem mechanizmu odzyskiwania." RAG to podejście, które łączy w sobie dwa główne elementy: mechanizm odzyskiwania informacji (retrieval) i generację tekstu.
-
-RAG jest często wykorzystywany w zadaniach związanych z przetwarzaniem języka naturalnego, takich jak systemy odpowiadające na pytania, generatory tekstu czy też w systemach dialogowych. Integracja mechanizmu odzyskiwania informacji ma na celu poprawę jakości generowanego tekstu poprzez korzystanie z istniejących, precyzyjnych danych.
-
-Podejście RAG ma zastosowanie w różnych obszarach, takich jak wyszukiwarki internetowe, systemy wspomagające decyzje, czy aplikacje do automatycznego generowania treści. Wdrażanie takiego modelu może przyczynić się do lepszej skuteczności i dostarczenia bardziej trafnych odpowiedzi w kontekście danego zadania.
+Jest to skrót od "Retrieval-Augmented Generation", czyli w tłumaczeniu na polski "Generacja z użyciem mechanizmu odzyskiwania". RAG jest często wykorzystywany w zadaniach związanych z przetwarzaniem języka naturalnego, takich jak systemy odpowiadające na pytania, generatory tekstu czy też w systemach dialogowych. Wdrażanie takiego systemu może przyczynić się do lepszej skuteczności i dostarczenia bardziej trafnych oraz aktualnych odpowiedzi w kontekście danego zadania.
 
 ### Jak działa RAG?
 ![RAG [6]](assets/1695787886133.png)
@@ -25,7 +21,7 @@ RAG łączy procesy odzyskiwania informacji (Retrieval) i generacji tekstu (Gene
     - Podstawą jest zapewnienie wektorowej bazy danych zawierającej embeddingi naszej bazy wiedzy.
 
 1. **Zapytanie Użytkownika**:
-    - Wszystko rozpoczyna się od zapytania użytkownika, które jest przekazywane do systemu RAG. Zapytanie to może być pytaniem, prośbą o wygenerowanie tekstu lub jakimkolwiek innym promptem.
+    - Zapytanie użytkownika jest przekazywane do systemu RAG. Zapytanie to może być pytaniem, prośbą o wygenerowanie tekstu lub jakimkolwiek innym promptem.
 
 2. **Odzyskiwanie Informacji (Retrieval)**: 
     - Zapytanie użytkownika zostaje zembeddowane do bazy wektorowej. W tym kroku należy pamiętać aby wykorzystać ten sam model, którego wcześniej użyliśmy do utworzenia wektorowej bazy danych.
@@ -36,6 +32,8 @@ RAG łączy procesy odzyskiwania informacji (Retrieval) i generacji tekstu (Gene
 	- Tak przygotowane zapytanie użytkownika wraz z pobranym kontekstem jest wykorzystywane przez model generacji tekstu, aby stworzyć nową, spójną odpowiedź.
 	- W tym projekcie do generacji tekstu wykorzystywany jest model *google/flan-ul2*.
 	- Ta odpowiedź jest następnie przekazywana użytkownikowi jako końcowy produkt działania systemu RAG.
+
+
 ## Jak można ewaluować działanie systemu RAG?
 Metodę RAG można ewaluować względem następujących aspektów:
 - ewaluacja odzyskiwania informacji (tylko Retrieval)
@@ -47,7 +45,7 @@ Metodę RAG można ewaluować względem następujących aspektów:
 
 ![RAG - ewaluacja [5]](assets/1*4O0q0SV8d1SpcbkIpZbEIw.webp)
 
-Chcąc ewaluować RAG całościowo, możemy patrzeć na średnią harmoniczną powyższych czterech metryk. W taki sposób działa metoda **ragas score** [4]. W tym projekcie skupimy się na ewaluacji odzyskiwania informacji (tylko Retrieval). Oczywiście zarówno aspekt Retrieval jak i Generation są niezwykle istotne, natomiast w naszym przypadku, tj. w przypadku badania wpływu różnych embeddingów szczególnie interesującym będzie właśnie kontekst Retrieval.
+Chcąc ewaluować RAG całościowo, możemy patrzeć na średnią harmoniczną powyższych czterech metryk. W taki sposób działa metoda **ragas score** [4]. W tym projekcie skupimy się natomiast przede wszystkim na ewaluacji odzyskiwania informacji (Retrieval). Oczywiście zarówno aspekt Retrieval jak i Generation są niezwykle istotne, natomiast w naszym przypadku, tj. w przypadku badania wpływu różnych embeddingów, szczególnie interesującym będzie właśnie aspekt Retrieval.
 
 Zarówno Generation Faithfullness (czyli mierzenie halucynacji) jak i Generation Relevance (czyli mierzenie jak dobrze wygenerowana odpowiedź odnosi się do zadanego pytania) zależą przede wszystkim od modelu wykorzystanego do wygenerowania ostatecznej odpowiedzi. Natomiast model tworzący embeddingi będzie miał bezpośredni wpływ na aspekt odzyskiwania informacji (Retrieval). W związku z powyższym wybierając metodę ewaluacji skupiliśmy się tylko i wyłącznie na aspekcie Retrieval.
 
