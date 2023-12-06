@@ -3,11 +3,28 @@ Miłosz Łopatto
 
 # Dokumentacja wstępna do projektu z przedmiotu NLP
 
-## RAG (Retrieval Augmented Generation) oraz wpływ różnych embeddingów na działanie tej metody.
-Projekt ten bada wpływ różnych embeddingów na działanie metody Retrieval Augmented Generation (RAG) na przykładzie bazy wektorowej Chroma.
+Spis treści:
+- [[#Temat projektu|Temat projektu]]
+- [[#Cel projektu|Cel projektu]]
+- [[#Czym jest RAG?|Czym jest RAG?]]
+	- [[#Czym jest RAG?#Jak działa RAG?|Jak działa RAG?]]
+- [[#Jak można ewaluować działanie systemu RAG?|Jak można ewaluować działanie systemu RAG?]]
+	- [[#Jak można ewaluować działanie systemu RAG?#Wybrana metoda ewaluacji|Wybrana metoda ewaluacji]]
+- [[#Przykładowe modele embeddingowe|Przykładowe modele embeddingowe]]
+- [[#Wyniki eksperymentów|Wyniki eksperymentów]]
+- [[#Wnioski|Wnioski]]
+- [[#Źródła|Źródła]]
+
+
+## Temat projektu
+
+> [!info] Temat projektu
+>**RAG (Retrieval Augmented Generation) oraz wpływ różnych embeddingów na działanie tej metody.**
+
+Projekt ten bada wpływ różnych embeddingów na działanie metody Retrieval Augmented Generation (RAG).
 
 ## Cel projektu
-Początkowo chcieliśmy porównać kilka bardziej znanych modeli generujących embeddingi. Jednakże po odkryciu [benchmarku MTEB (Massive Text Embedding Benchmark)](https://huggingface.co/spaces/mteb/leaderboard) [9] stwierdziliśmy, że lepszym pomysłem byłoby wybranie modelu który nie został jeszcze uwzględniony w tym benchmarku, a następnie wstawienie do niego uzyskanych przez nas wyników. Dzięki temu zamiast liczyć coś co zostało już wcześniej policzone w jakimś stopniu przyczynimy się do rozwoju tego otwartoźródłowego projektu.
+Początkowo chcieliśmy porównać kilka bardziej znanych modeli generujących embeddingi. Jednakże po odkryciu [benchmarku MTEB (Massive Text Embedding Benchmark)](https://huggingface.co/spaces/mteb/leaderboard) [9] stwierdziliśmy, że lepszym pomysłem byłoby wybranie modelu, który nie został jeszcze uwzględniony w tym benchmarku. Dzięki temu zamiast liczyć coś co zostało już wcześniej policzone w jakimś stopniu przyczynimy się do rozwoju tego otwarto-źródłowego projektu, ponieważ uzyskane przez nas wyniki wgramy do wspomnianej wyżej tabeli wyników.
 
 Zakres projektu:
 1. Analiza podejścia Retrieval Augmented Generation.
@@ -58,43 +75,26 @@ Zarówno Generation Faithfullness (czyli mierzenie halucynacji) jak i Generation
 
 
 ### Wybrana metoda ewaluacji
-Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz MAP@k na zadaniu Retrieval projektu MTEB [2] na w sumie 15 benchmarkach po raz pierwszy skompilowanych na projekcie BEIR [3]. Do ewaluacji wykorzystywane jest narzędzie mteb, do podglądu rezultatów oraz oceny manualnej używany jest system RAG z wektorową bazą danych Chroma zbudowany w technologii LangChain z interfejsem w Streamlit.
-
-- n-DCG@10 (Normalized Discounted Cumulative Gain at 10)
-    - Skupia się na ocenie jakości pierwszych 10 wyników, co jest istotne w kontekście szybkiego dostarczania trafnych odpowiedzi użytkownikom.
-- MRR@k (Mean Reciprocal Rank at k)
-    - Ocenia, jak dobrze system odzyskuje najbardziej trafne informacje.
-- MAP@k (Mean Average Precision at k)
-    - Ocenia średnią dokładność w kontekście wielu zapytań, co jest ważne w ewaluacji skuteczności odzyskiwania informacji.
+Dokonamy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz MAP@k na zadaniu Retrieval projektu MTEB [2] na w sumie 15 benchmarkach po raz pierwszy skompilowanych na projekcie BEIR [3]. Do ewaluacji wykorzystywane jest narzędzie mteb, do podglądu rezultatów oraz oceny manualnej używany jest system RAG z wektorową bazą danych Chroma zbudowany w technologii LangChain z interfejsem w Streamlit.
 
 ## Przykładowe modele embeddingowe
 - **BERT (Bidirectional Encoder Representations from Transformers)** [10]:
     - BERT jest jednym z najbardziej znanych modeli do generowania embeddingów. Jest on szczególnie efektywny w rozumieniu kontekstu, co może być kluczowe w metodzie RAG.
-
-
 - **GPT-2/GPT-3 (Generative Pretrained Transformer 2/3)** [11]:
     - Te modele, znane z generowania spójnego i kontekstowego tekstu, mogą być użyteczne do badania, jak generatywne embeddingi wpływają na proces generacji w RAG.
-
-
 - **RoBERTa (A Robustly Optimized BERT Pretraining Approach)** [12]:
     - RoBERTa jest wariantem BERT, który został zoptymalizowany pod kątem większej dokładności. Może to zapewnić interesujące porównanie z tradycyjnym BERT-em.
-
-
 - **DistilBERT (Distilled Version of BERT)** [13]:
     - Jest to uproszczona i bardziej efektywna wersja BERT-a pod względem obliczeniowym, co może być istotne w zastosowaniach, gdzie szybkość jest kluczowa.
-
-
 - **T5 (Text-To-Text Transfer Transformer)** [14]:
     - T5 jest wszechstronnym modelem, który traktuje każde zadanie NLP jako zadanie konwersji tekstu na tekst, co może być interesujące w kontekście RAG.
-
-
 - **ALBERT (A Lite BERT)** [15]:
    - ALBERT to uproszczona wersja BERT-a, która została opracowana przez Google w celu radzenia sobie z problemami wynikającymi z dużych rozmiarów modelu. Używa ona technik redukcji parametrów, co może być korzystne w kontekście efektywności obliczeniowej i skalowalności systemu RAG.
 
 
-Wyżej wymienione przykładowe modele w większości zostały już uwzględnione w benchmarku MTEB. W związku z tym na platformie HuggingFace postaramy się znaleźć mniej znany model, który jeszcze nie został uwzględniony w benchmarku MTEB, a który naszym zdaniem ma szanse uzyskać sensowne wyniki.
+Wyżej wymienione przykładowe modele w większości zostały już uwzględnione w benchmarku MTEB. W związku z tym na platformie HuggingFace postaramy się znaleźć mniej znany model, który jeszcze nie został uwzględniony w tym benchmarku, a który naszym zdaniem ma szanse uzyskać sensowne wyniki.
 
-Co ciekawe w leaderboardzie benchmarku MTEB w kategorii Retrieval wyróżnione są 3 podkategorie językowe - angielski, chiński oraz polski. W związku z tym być może zdecydujemy się skupić na podkategorii dedykowanej dla języka polskiego.
+Co ciekawe w tabeli wyników MTEB w kategorii Retrieval wyróżnione są trzy główne podkategorie językowe - angielski, chiński oraz polski. W związku z tym być może zdecydujemy się skupić na podkategorii dedykowanej dla języka polskiego.
 
 ## Wyniki eksperymentów
 - [ ] TODO w dalszych etapach projektu
@@ -102,7 +102,7 @@ Co ciekawe w leaderboardzie benchmarku MTEB w kategorii Retrieval wyróżnione s
 ## Wnioski
 - [ ] TODO w dalszych etapach projektu
 
-## Źródła:
+## Źródła
 [1] Andrew Rosenberg and Julia Hirschberg. 2007. Vmeasure: A conditional entropy-based external cluster evaluation measure. pages 410–420.
 
 [2] Muennighoff, Niklas, Nouamane Tazi, Loïc Magne, i Nils Reimers. "MTEB: Massive Text Embedding Benchmark." ArXiv:2210.07316.
