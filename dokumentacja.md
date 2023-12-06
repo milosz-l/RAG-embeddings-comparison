@@ -1,11 +1,14 @@
 # RAG (Retrieval Augmented Generation) oraz wpływ różnych embeddingów na działanie tej metody.
 Ten projekt bada wpływ różnych embeddingów na działanie metody Retrieval Augmented Generation (RAG) na przykładzie bazy wektorowej Chroma.
 
-Główne cele projektu:
+## Cel projektu
+Początkowo chcieliśmy porównać kilka bardziej znanych modeli generujących embeddingi. Jednakże po odkryciu [benchmarku MTEB (Massive Text Embedding Benchmark)](https://huggingface.co/spaces/mteb/leaderboard) [9] stwierdziliśmy, że lepszym pomysłem byłoby wybranie modelu który nie został jeszcze uwzględniony w tym benchmarku, a następnie wstawienie do niego uzyskanych przez nas wyników. Dzięki temu zamiast liczyć coś co zostało już wcześniej policzone w jakimś stopniu przyczynimy się do rozwoju tego otwartoźródłowego projektu.
+
+Zakres projektu:
 1. Analiza podejścia Retrieval Augmented Generation.
-2. Zdefiniowanie testowanych embeddingów.
-3. Zdefiniowanie metod ewaluacji skuteczności działania metody RAG.
-4. Implementacja środowiska badającego wpływ różnych embeddingów na działanie metody RAG.
+2. Zdefiniowanie metod ewaluacji skuteczności działania metody RAG.
+3. Zdefiniowanie testowanych embeddingów.
+4. Przeprowadzenie testów.
 5. Analiza wyników i wnioski.
 
 
@@ -60,7 +63,7 @@ Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz M
 - MAP@k (Mean Average Precision at k)
     - Ocenia średnią dokładność w kontekście wielu zapytań, co jest ważne w ewaluacji skuteczności odzyskiwania informacji.
 
-## Testowane embeddingi
+## Przykładowe modele embeddingowe
 - **BERT (Bidirectional Encoder Representations from Transformers)**:
     - BERT jest jednym z najbardziej znanych modeli do generowania embeddingów. Jest on szczególnie efektywny w rozumieniu kontekstu, co może być kluczowe w metodzie RAG.
     - Na przykład: `bert-base-uncased`, `bert-large-uncased`.
@@ -85,6 +88,10 @@ Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz M
    - ALBERT to uproszczona wersja BERT-a, która została opracowana przez Google w celu radzenia sobie z problemami wynikającymi z dużych rozmiarów modelu. Używa ona technik redukcji parametrów, co może być korzystne w kontekście efektywności obliczeniowej i skalowalności systemu RAG.
    - Na przykład: `albert-base-v2`, `albert-large-v2`.
 
+Wyżej wymienione przykładowe modele w większości zostały już uwzględnione w benchmarku MTEB. W związku z tym na platformie HuggingFace postaramy się znaleźć mniej znany model, który jeszcze nie został uwzględniony w benchmarku MTEB, a który naszym zdaniem ma szanse uzyskać sensowne wyniki.
+
+Co ciekawe w leaderboardzie benchmarku MTEB w kategorii Retrieval wyróżnione są 3 podkategorie językowe - angielski, chiński oraz polski. W związku z tym być może zdecydujemy się skupić na podkategorii dedykowanej dla języka polskiego.
+
 ## Wyniki eksperymentów
 - [ ] TODO w dalszych etapach projektu
 
@@ -107,3 +114,5 @@ Dokonujemy badania miarą główną n-DCG@10 z miarami pomocniczymi MRR@k oraz M
 [7] Thulke, David, Nico Daheim, Christian Dugast and Hermann Ney. “Efficient Retrieval Augmented Generation from Unstructured Knowledge for Task-Oriented Dialog.” ArXiv abs/2102.04643 (2021): n. pag.
 
 [8] Lewis, Patrick, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler et al. "Retrieval-augmented generation for knowledge-intensive nlp tasks." Advances in Neural Information Processing Systems 33 (2020): 9459-9474.
+
+[9] https://arxiv.org/abs/2305.19840
