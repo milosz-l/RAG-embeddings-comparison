@@ -1,5 +1,10 @@
-# RAG (Retrieval Augmented Generation) oraz wpływ różnych embeddingów na działanie tej metody.
-Ten projekt bada wpływ różnych embeddingów na działanie metody Retrieval Augmented Generation (RAG) na przykładzie bazy wektorowej Chroma.
+Richard Staszkiewicz
+Miłosz Łopatto
+
+# NLP projekt - dokumentacja wstępna
+
+## RAG (Retrieval Augmented Generation) oraz wpływ różnych embeddingów na działanie tej metody.
+Projekt ten bada wpływ różnych embeddingów na działanie metody Retrieval Augmented Generation (RAG) na przykładzie bazy wektorowej Chroma.
 
 ## Cel projektu
 Początkowo chcieliśmy porównać kilka bardziej znanych modeli generujących embeddingi. Jednakże po odkryciu [benchmarku MTEB (Massive Text Embedding Benchmark)](https://huggingface.co/spaces/mteb/leaderboard) [9] stwierdziliśmy, że lepszym pomysłem byłoby wybranie modelu który nie został jeszcze uwzględniony w tym benchmarku, a następnie wstawienie do niego uzyskanych przez nas wyników. Dzięki temu zamiast liczyć coś co zostało już wcześniej policzone w jakimś stopniu przyczynimy się do rozwoju tego otwartoźródłowego projektu.
