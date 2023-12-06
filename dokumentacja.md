@@ -1,7 +1,7 @@
 Richard Staszkiewicz
 Miłosz Łopatto
 
-# NLP projekt - dokumentacja wstępna
+# Dokumentacja wstępna do projektu z przedmiotu NLP
 
 ## RAG (Retrieval Augmented Generation) oraz wpływ różnych embeddingów na działanie tej metody.
 Projekt ten bada wpływ różnych embeddingów na działanie metody Retrieval Augmented Generation (RAG) na przykładzie bazy wektorowej Chroma.
