@@ -1,3 +1,5 @@
+# pip install chromadb ibm-watson-machine-learning
+# pip install pysqlite3-binary
 import os
 from dotenv import load_dotenv
 from langchain.llms import OpenAI
@@ -10,7 +12,10 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 from genai.extensions.langchain import LangChainInterface
 from genai.schemas import GenerateParams
 from genai.credentials import Credentials
-
+from ibm_watson_machine_learning.foundation_models import Model
+from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes
+from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
+from langchain import HuggingFaceHub
 
 #Extract Information from PDF file
 def get_pdf_text(pdf_doc):
@@ -32,6 +37,16 @@ def create_vectorstore(documents, embedding=SentenceTransformerEmbeddings(model_
     return vectordb
 
 # get LLM
+
+def get_watsonx_llm(api, end, proj):
+    params = {
+        GenParams.MAX_NEW_TOKES: 10000,
+        GenParams.DECODING_METHOD: "sample",
+        GenParams.MIN_NEW_TOKENS: 250,
+        GenParams.TEMPERATURE: 0.7
+    }
+    return Model(model_id=ModelTypes.FLAN_UL2, credentials={"apikey": api, "url": end}, params=params, project_id=proj)
+
 def get_bam_llm():
     load_dotenv()
     api_key = os.getenv("GENAI_KEY", None) # from .env
@@ -40,8 +55,11 @@ def get_bam_llm():
     params = GenerateParams(decoding_method="greedy")
     return LangChainInterface(model="google/flan-ul2", params=params, credentials=creds)
 
-def get_openai_llm():
-    return OpenAI(model_name="gpt-4-1106-preview")
+def get_openai_llm(api):
+    return OpenAI(model_name="gpt-4-1106-preview",openai_api_key=api)
+
+def get_hf_llm(api):
+    return HuggingFaceHub(repo_id='google/flan-t5-xl', model_kwargs={'temperature':0.3}, huggingfacehub_api_token=api)
 
 # iterate over files in
 # that user uploaded PDF files, one by one

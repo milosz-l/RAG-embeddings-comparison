@@ -13,9 +13,9 @@ unstructured = "*"
 pinecone-client = "*"
 pypdf = "*"
 sentence-transformers = "*"
-chromadb = "==0.4.15"
 ibm-generative-ai = "*"
 mteb = {extras = ["beir"] }
+chroma = "*"
 
 [dev-packages]
 black="*"
