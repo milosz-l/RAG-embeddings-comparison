@@ -26,7 +26,9 @@ def get_pdf_text(pdf_doc):
     return text
 
 #Create CHROMA vectorstore
-def create_vectorstore(documents, embedding=SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2"), persist_directory = 'docs/chroma/'):
+def create_vectorstore(documents, embedding=None, persist_directory = 'docs/chroma/'):
+    if embedding is None:
+        embedding = SentenceTransformerEmbeddings(model_name="ipipan/silver-retriever-base-v1.1")
     # Create the vector store
     vectordb = Chroma.from_documents(
         documents=documents,
