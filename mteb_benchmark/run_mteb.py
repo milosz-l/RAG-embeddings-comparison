@@ -23,7 +23,7 @@ retrieval_tasks = [
 tasks = retrieval_tasks
 
 model_name = "ipipan/silver-retriever-base-v1.1"
-model = SentenceTransformer(model_name)
+model = SentenceTransformer(model_name)  # for mac m1: , device="mps")
 
 evaluation = MTEB(tasks=tasks, task_langs=["pl"])
 evaluation.run(model, output_folder=f"results/pl/{model_name.split('/')[-1]}")
