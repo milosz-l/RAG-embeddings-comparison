@@ -67,11 +67,11 @@ def execute_query(pdf, query, option):
         st.write(f"*Files uploaded* : {str(len(final_docs_list))}")
 
         #Chunk the knowledge in documents into managable pieces
-        st.write("Chunking the documents...")
+        st.write("*Chunking the documents...*")
         final_docs_chunks=chunk_docs(final_docs_list, chunk_size=500, chunk_overlap=100)
 
         #Create vectorstore
-        st.write("Creating an CHROMA vectorstore...")
+        st.write("*Loading to CHROMA vectorstore...*")
         vectordb = create_vectorstore(final_docs_chunks)
 
         #QA Chain
