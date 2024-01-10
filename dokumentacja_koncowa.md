@@ -173,9 +173,9 @@ Model | Average | ArguAna-PL | DBPedia-PL | FiQA-PL | HotpotQA-PL | MSMARCO-PL |
 
 
 ## Wnioski
-Ze względu na pogorszenie wyników pomiędzy modelami herbert-base-retrieval-v2 (silver-retriever-base-v1) a silver-retriever-base-v1.1 doszliśmy do wniosków, że autorzy w trakcie trenowania nowej wersji nie wzięli pod uwagę dostatecznej ilości zadań RAG. Ponieważ pogorszenie statystyk wykazuje 10/11 benchmarków, z dużą dozą pewności można stwierdzić iż do zadań tego typu należy używać rozwiązania wcześniejszego.
+Ze względu na pogorszenie wyników pomiędzy modelami herbert-base-retrieval-v2 (silver-retriever-base-v1) a silver-retriever-base-v1.1 doszliśmy do wniosków, że być może dotrenowanie modelu pogorszyło jego działanie w ogólnych przypadkach. Pogorszenie statystyk wykazuje 10/11 benchmarków, więc z dużą dozą pewności można stwierdzić iż do zadań tego typu należy używać wersji v1 zamiast v1.1.
 
-W celu publikacji rezultatów naszego badania, jesteśmy w trakcie nawiązywania kontaktu z oryginalnymi autorami modeli z rodziny silver-retrieval by poywierdzić nasze wnioski i dokonać kontrybucji do projektu MTEB.
+W celu publikacji rezultatów naszego badania, jesteśmy w trakcie nawiązywania kontaktu z oryginalnymi autorami modeli z rodziny silver-retrieval by potwierdzić nasze wnioski i dokonać kontrybucji do projektu MTEB.
 
 
 ## Aplikacja
