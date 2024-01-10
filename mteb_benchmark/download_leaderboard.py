@@ -1,3 +1,7 @@
+# NOTE: this is a special version of mteb leaderboard app.py file that solves this issue:
+# https://huggingface.co/spaces/mteb/leaderboard/discussions/56
+# In short: It saves retrieval leaderboard for Polish language to a csv file.
+
 from functools import partial
 import json
 
