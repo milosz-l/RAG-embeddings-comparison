@@ -1,20 +1,7 @@
 Richard Staszkiewicz
 Miłosz Łopatto
 
-# Dokumentacja wstępna do projektu z przedmiotu NLP
-
-Spis treści:
-- [[#Temat projektu|Temat projektu]]
-- [[#Cel projektu|Cel projektu]]
-- [[#Czym jest RAG?|Czym jest RAG?]]
-	- [[#Czym jest RAG?#Jak działa RAG?|Jak działa RAG?]]
-- [[#Jak można ewaluować działanie systemu RAG?|Jak można ewaluować działanie systemu RAG?]]
-	- [[#Jak można ewaluować działanie systemu RAG?#Wybrana metoda ewaluacji|Wybrana metoda ewaluacji]]
-- [[#Przykładowe modele embeddingowe|Przykładowe modele embeddingowe]]
-- [[#Wyniki eksperymentów|Wyniki eksperymentów]]
-- [[#Wnioski|Wnioski]]
-- [[#Źródła|Źródła]]
-
+# Dokumentacja końcowa do projektu z przedmiotu NLP
 
 ## Temat projektu
 
@@ -32,6 +19,7 @@ Zakres projektu:
 3. Zdefiniowanie testowanych embeddingów.
 4. Przeprowadzenie testów.
 5. Analiza wyników i wnioski.
+6. Utworzenie przykładowej aplikacji prezentującej działanie testowanych systemów.
 
 
 ## Czym jest RAG?
