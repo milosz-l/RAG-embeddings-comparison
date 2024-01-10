@@ -1,6 +1,21 @@
 Richard Staszkiewicz
 Miłosz Łopatto
 
+1. [[#Temat projektu|Temat projektu]]
+2. [[#Cel projektu|Cel projektu]]
+3. [[#Czym jest RAG?|Czym jest RAG?]]
+	1. [[#Czym jest RAG?#Jak działa RAG?|Jak działa RAG?]]
+4. [[#Jak można ewaluować działanie systemu RAG?|Jak można ewaluować działanie systemu RAG?]]
+	1. [[#Jak można ewaluować działanie systemu RAG?#Wybrana metoda ewaluacji|Wybrana metoda ewaluacji]]
+5. [[#Przykładowe modele embeddingowe|Przykładowe modele embeddingowe]]
+	1. [[#Przykładowe modele embeddingowe#Ostatecznie wybrany model - **Silver Retriever Base (v1.1)**|Ostatecznie wybrany model - **Silver Retriever Base (v1.1)**]]
+6. [[#Wyniki eksperymentów|Wyniki eksperymentów]]
+7. [[#Wnioski|Wnioski]]
+8. [[#Aplikacja|Aplikacja]]
+	1. [[#Aplikacja#Technologia|Technologia]]
+9. [[#Źródła|Źródła]]
+
+
 # Dokumentacja końcowa do projektu z przedmiotu NLP
 
 ## Temat projektu
