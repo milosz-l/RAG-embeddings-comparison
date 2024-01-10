@@ -168,10 +168,14 @@ Model | Average | ArguAna-PL | DBPedia-PL | FiQA-PL | HotpotQA-PL | MSMARCO-PL |
 [LaBSE](https://huggingface.co/sentence-transformers/LaBSE) | 23.36 | 38.52 | 16.1 | 7.63 | 19.72 | 7.22 | 17.45 | 9.65 | 74.96 | 7.48 | 39.79 | 18.45 |
 [distiluse-base-multilingual-cased-v2](https://huggingface.co/sentence-transformers/distiluse-base-multilingual-cased-v2) | 21.18 | 36.7 | 12.36 | 8.02 | 20.83 | 4.57 | 16.28 | 5.85 | 71.95 | 6.5 | 33.03 | 16.91 |
 [herbert-base-retrieval-v2](https://huggingface.co/ipipan/herbert-base-retrieval-v2) | 39.16 | 41.97 | 24.07 | 24.25 | 43.41 | 51.56 | 25.95 | 35.09 | 78.86 | 11.0 | 51.92 | 42.64 |
-[silver-retriever-base-v1.1](https://huggingface.co/ipipan/silver-retriever-base-v1.1) | 37.59 | 41.72 | 23.69 | 22.07 | 38.51 | 46.32 | 24.48 | 34.65 | 77.15 | 10.87 | 49.69 | 44.31 | 
+[silver-retriever-base-v1.1](https://huggingface.co/ipipan/silver-retriever-base-v1.1) | 37.59 | 41.72 | 23.69 | 22.07 | 38.51 | 46.32 | 24.48 | 34.65 | 77.15 | 10.87 | 49.69 | 44.31 |
 
 
 ## Wnioski
+Ze względu na pogorszenie wyników pomiędzy modelami herbert-base-retrieval-v2 (silver-retriever-base-v1) a silver-retriever-base-v1.1 doszliśmy do wniosków, że autorzy w trakcie trenowania nowej wersji nie wzięli pod uwagę dostatecznej ilości zadań RAG. Ponieważ pogorszenie statystyk wykazuje 11/12 benchmarków, z dużą dozą pewności można stwierdzić iż do zadań tego typu należy używać rozwiązania wcześniejszego.
+
+W celu publikacji rezultatów naszego badania, jesteśmy w trakcie nawiązywania kontaktu z oryginalnymi autorami modeli z rodziny silver-retrieval by poywierdzić nasze wnioski i dokonać kontrybucji do projektu MTEB.
+
 
 ## Aplikacja
 W celu dokonania oglądu własnego działania wybranego modelu i weryfikacji jego możliwości został on podłączony do bazy wektorowej Chroma. Na podstawie tej bazy, utworzono standardowy interfejs, za pomocą którego użytkownik jest w stanie zapewnić źródła bazie wiedzy a następnie ją odpytać za pośrednictwem LLM. Do testowania zostały jako LLM użyte modele GPT4-turbo oraz Falcon-180b udostępniane komercyjnie odpowiednio przez OpenAI oraz IBM. Dla wygody użytkownika, dodano także możliwość połączenia się z modelami udostępnianymi na platformach WatsonX oraz HuggingFace.
