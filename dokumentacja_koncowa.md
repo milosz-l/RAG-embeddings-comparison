@@ -145,6 +145,8 @@ Spośród 41 modeli najlepiej powyższe wymagania spełnił Silver Retriever.
 | [SciFact-PL](https://github.com/allenai/scifact) | [BeIR-PL/scifact-pl](https://huggingface.co/datasets/clarin-knext/scifact-pl) | SciFact verifies scientific claims using evidence from the research literature containing scientific paper abstracts. | Retrieval | s2p | 1 | 0 | 0 | 5483 | 0 | 0 | 1422.3 |
 | [TRECCOVID](https://ir.nist.gov/covidSubmit/index.html)                                                                                                               | [BeIR/trec-covid](https://huggingface.co/datasets/BeIR/trec-covid)                                                                   | TRECCOVID is an ad-hoc search challenge based on the CORD-19 dataset containing scientific articles related to the COVID-19 pandemic                                                                             | Retrieval          | s2p      |          1 |              0 |            0 |        171382 |                  0 |                0 |            1117.4 |
 
+#### Środowisko obliczeniowe
+Jako środowisko obliczeniowe (początkowo) wykorzystany został Google Colab z kartą graficzną `Nvidia V100`. Rozmiary zadań zdefiniowanych w benchmarku mteb w kategorii Retrieval dla języka polskiego okazały się zaskakująco różnorodne. Na wspomnianym wcześniej sprzęcie niektóre zadania wykonywały się kilka minut, a inne kilka godzin. Jeden z tasków zasługuje jednak na szczególną uwagę - `MSMARCO-PL`. Do ukończenia go musieliśmy ostatecznie wynająć kartę `Nvidia A100`, która potrzebowała około 9 godzin na wykonanie zadania. Całe szczęście udało się przetestować model na wszystkich zbiorach danych.
 
 ## Wyniki eksperymentów
 Dokładne wyniki dla każdego z zadań można znaleźć w folderze `/mteb_benchmark/results/pl/silver-retriever-base-v1.1`. Wyniki dla każdego z "tasków" zawierają się w oddzielnych plikach w formacie `.json`.
@@ -170,7 +172,6 @@ Model | Average | ArguAna-PL | DBPedia-PL | FiQA-PL | HotpotQA-PL | MSMARCO-PL |
 [distiluse-base-multilingual-cased-v2](https://huggingface.co/sentence-transformers/distiluse-base-multilingual-cased-v2) | 21.18 | 36.7 | 12.36 | 8.02 | 20.83 | 4.57 | 16.28 | 5.85 | 71.95 | 6.5 | 33.03 | 16.91 |
 [herbert-base-retrieval-v2](https://huggingface.co/ipipan/herbert-base-retrieval-v2) | 39.16 | 41.97 | 24.07 | 24.25 | 43.41 | 51.56 | 25.95 | 35.09 | 78.86 | 11.0 | 51.92 | 42.64 |
 [silver-retriever-base-v1.1](https://huggingface.co/ipipan/silver-retriever-base-v1.1) | 37.59 | 41.72 | 23.69 | 22.07 | 38.51 | 46.32 | 24.48 | 34.65 | 77.15 | 10.87 | 49.69 | 44.31 |
-
 
 ## Wnioski
 Ze względu na pogorszenie wyników pomiędzy modelami herbert-base-retrieval-v2 (silver-retriever-base-v1) a silver-retriever-base-v1.1 doszliśmy do wniosków, że być może dotrenowanie modelu pogorszyło jego działanie w ogólnych przypadkach. Pogorszenie statystyk wykazuje 10/11 benchmarków, więc z dużą dozą pewności można stwierdzić iż do zadań tego typu należy używać wersji v1 zamiast v1.1.
