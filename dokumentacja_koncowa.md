@@ -194,7 +194,6 @@ Implementacją GUI został wybrany Streamlit, będących jedną z prostszych bib
 
 Backend odpowiadający za przetwarzanie informacji oraz współpracę pomiędzy interfejsem, bazą wektorową (wiedzy) oraz LLM-em został opracowany w technologii LangChain. Jest to jedna z wiodących prym bibliotek udostępniających zaawansowane abstrakcje (nazywane łańcuchami) umożliwiające zarządzanie przepływem informacji w aplikacjiach opartych na modelach językowych. Zapewnia ona integrację z wielką liczbą dostawców zarówno modeli, jak i rozwiązań powiązanych. Zastosowanym łańcuchem został standardowy do takich zadań *RetrievalQA*, który kompiluje odpowiedź modelu na podstawie informacji uzyskanych z bazy wiedzy.
 
-![RAG](assets/app.png)
 
 ## Źródła
 [1] Andrew Rosenberg and Julia Hirschberg. 2007. Vmeasure: A conditional entropy-based external cluster evaluation measure. pages 410–420.
