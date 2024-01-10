@@ -153,12 +153,19 @@ Spośród 41 modeli najlepiej powyższe wymagania spełnił Silver Retriever.
 ## Aplikacja
 W celu dokonania oglądu własnego działania wybranego modelu i weryfikacji jego możliwości został on podłączony do bazy wektorowej Chroma. Na podstawie tej bazy, utworzono standardowy interfejs, za pomocą którego użytkownik jest w stanie zapewnić źródła bazie wiedzy a następnie ją odpytać za pośrednictwem LLM. Do testowania zostały jako LLM użyte modele GPT4-turbo oraz Falcon-180b udostępniane komercyjnie odpowiednio przez OpenAI oraz IBM. Dla wygody użytkownika, dodano także możliwość połączenia się z modelami udostępnianymi na platformach WatsonX oraz HuggingFace.
 
+W trakcie testów z pomocą aplikacji doszliśmy do następujących wniosków:
+1. Model silver v1.1 jak na swoją wielkość, zachowuje się bardzo efektywnie
+2. Znalezione przez model silver v1.1 informacje są w znacznej większości przypadków związane z zadanym pytaniem i prawie zawsze prawidłowo posortowane od najmniej do najbardziej istotnych.
+3. Wszelkie braki w odpowiedziach aplikacji zostały ujawnione jako wina interpretujących modeli językowych. O ile komercyjne zastosowania dawały stabilne wyniki, o tyle większość z nich nie jest dostosowanych do języka polskiego.
+
 ### Technologia
 Do obsługi bazy wektorowej wybrano open-source'ową bazę Chroma. Została ona przedłożona nad komercjalne rozwiązania tj. Pinecone czy DBLance głównie dzięki jej łatwej i darmowej budowie w środowisku lokalnym. Posiadając duże wsparcie społeczności, jest ona również tylko niewiele mniej wydajna od rozwiązań komercyjnych a więcej niż wystarczająco do użytkowania związanego z rozpatrywanym projektem.
 
 Implementacją GUI został wybrany Streamlit, będących jedną z prostszych bibliotek do tego stworzonych. O ile nie posiada on znacznych możliwości regulacji, dzięki wysokiej abstrakcyjności obiektów można łatwo stworzyć powtarzalny, a mimo wszystko estetyczny interfejs. Znajduje on obecnie często zastosowanie w betatestowaniu i udostępnianiu usług świadczonych przez modele językowe.
 
 Backend odpowiadający za przetwarzanie informacji oraz współpracę pomiędzy interfejsem, bazą wektorową (wiedzy) oraz LLM-em został opracowany w technologii LangChain. Jest to jedna z wiodących prym bibliotek udostępniających zaawansowane abstrakcje (nazywane łańcuchami) umożliwiające zarządzanie przepływem informacji w aplikacjiach opartych na modelach językowych. Zapewnia ona integrację z wielką liczbą dostawców zarówno modeli, jak i rozwiązań powiązanych. Zastosowanym łańcuchem został standardowy do takich zadań *RetrievalQA*, który kompiluje odpowiedź modelu na podstawie informacji uzyskanych z bazy wiedzy.
+
+![RAG](assets/app.png)
 
 ## Źródła
 [1] Andrew Rosenberg and Julia Hirschberg. 2007. Vmeasure: A conditional entropy-based external cluster evaluation measure. pages 410–420.
