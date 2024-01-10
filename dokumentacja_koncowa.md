@@ -121,7 +121,13 @@ W tej pracy prezentujemy SilverRetriever, neuronalny system odzyskiwania informa
 
 
 #### Jakie inne modele były brane pod uwagę?
+Pod uwagę brane były modele na HuggingFace spełniające następujące wymagania:
+1. Obsługuje język Polski. Badanie dot. języka narodowego, będącego obecnie głównym zapotrzebowaniem komercyjnym.
+2. Jest modelem kompatybilnym ze strukturą SentenceTransformers. Jest ona niezbędna do celu replikacji badania.
+3. Nie znajduje się obecnie w badaniu MTEB.
+4. Jest relatywnie mały. Ze względu na ograniczone zasoby, nie posiadamy sił obliczeniowych wymagannych przez większe modele.
 
+Spośród 41 modeli najlepiej powyższe wymagania spełnił Silver Retriever.
 
 #### Testowe zbiory danych
 | Name                                                                                                                                                                  | Hub URL                                                                                                                              | Description                                                                                                                                                                                                      | Type               | Category | #Languages | Train #Samples | Dev #Samples | Test #Samples | Avg. chars / train | Avg. chars / dev | Avg. chars / test |
