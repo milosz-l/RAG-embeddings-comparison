@@ -223,8 +223,4 @@ Backend odpowiadający za przetwarzanie informacji oraz współpracę pomiędzy 
 
 [15] Lan, Zhenzhong, Piyush Sharma, et al. "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations." Google AI. ArXiv:1909.11942.
 
-
-# dokumentacja końcowa - TODO
-- [ ] opis że została przygotowana także przykładowa aplikacja wykorzystująca RAG
-    - [ ] załączenie screenów z przykładowej aplikacji
-- [ ] struktura kodu (podzielić na HF oraz aplikację, a następnie to ładnie opisać)
+[16] Rybak, Piotr and Maciej Ogrodniczuk. "SilverRetriever: Advancing Neural Passage Retrieval for Polish Question Answering." ArXiv:2309.08469.
