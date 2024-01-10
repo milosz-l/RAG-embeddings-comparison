@@ -110,14 +110,12 @@ Model Silver Retriever bazuje na modelu HerBERT-base i został dostrojony (ang. 
 
 
 #### Dlaczego wybraliśmy akurat ten model?
-Model Silver Retriever spełnił wszystkie trzy kryteria które przede wszystkim braliśmy pod uwagę:
+Model Silver Retriever w wersji v1.1 spełnił wszystkie trzy kryteria które przede wszystkim braliśmy pod uwagę:
 1. Model nie został jeszcze uwzględniony w benchmarku MTEB w kategorii Retrieval dla języka polskiego.
 2. Model nie jest zbyt duży, ponieważ jako dwójka studentów nie dysponujemy ogromnymi zasobami mocy obliczeniowej.
 3. Model ma szanse zrobić dobry wynik na tle pozostałych modeli.
 
-Modern open-domain question answering systems often rely on accurate and efficient retrieval components to find passages containing the facts necessary to answer the question. Recently, neural retrievers have gained popularity over lexical alternatives due to their superior performance. However, most of the work concerns popular languages such as English or Chinese. For others, such as Polish, few models are available. In this work, we present SilverRetriever, a neural retriever for Polish trained on a diverse collection of manually or weakly labeled datasets. SilverRetriever achieves much better results than other Polish models and is competi- tive with larger multilingual models. Together with the model, we open-source five new passage retrieval datasets.
-
-W tej pracy prezentujemy SilverRetriever, neuronalny system odzyskiwania informacji dla języka polskiego, wytrenowany na różnorodnej kolekcji ręcznie lub słabo oznakowanych zbiorów danych. SilverRetriever osiąga znacznie lepsze wyniki niż inne polskie modele i jest konkurencyjny w stosunku do większych wielojęzycznych modeli. Wraz z modelem udostępniamy na otwartej licencji pięć nowych zbiorów danych do odzyskiwania fragmentów tekstów.
+Co ciekawe model ten w wersji v1 (czyli `silver-retriever-base-v1`) został przetestowany w benchmarku pod nazwą `herbert-base-retrieval-v2`. W związki z tym szczególnie interesujące dla nas będzie porównanie wyników tego modelu dla różnych jego wersji (tzn. v1 oraz v1.1).
 
 
 #### Jakie inne modele były brane pod uwagę?
