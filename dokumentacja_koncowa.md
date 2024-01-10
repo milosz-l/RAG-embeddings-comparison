@@ -146,7 +146,30 @@ Spośród 41 modeli najlepiej powyższe wymagania spełnił Silver Retriever.
 
 
 ## Wyniki eksperymentów
-- [ ] TODO w dalszych etapach projektu
+Dokładne wyniki dla każdego z zadań można znaleźć w folderze `/mteb_benchmark/results/pl/silver-retriever-base-v1.1`. Wyniki dla każdego z "tasków" zawierają się w oddzielnych plikach w formacie `.json`.
+
+Poniższa tabela jest uzupełnieniem aktualnej tabeli benchmarku mteb w kategorii retrieval dla języka polskiego. Tabela ta została uzupełniona o dodatkowy wiersz z danymi dla testowanego przez nas modeli.
+
+Model | Average | ArguAna-PL | DBPedia-PL | FiQA-PL | HotpotQA-PL | MSMARCO-PL | NFCorpus-PL | NQ-PL | Quora-PL | SCIDOCS-PL | SciFact-PL | TRECCOVID-PL |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+[mmlw-roberta-large](https://huggingface.co/sdadas/mmlw-roberta-large) | 52.71 | 63.4 | 40.27 | 40.89 | 71.04 | 36.63 | 33.94 | 47.62 | 85.51 | 19.47 | 70.23 | 70.81 |
+[mmlw-e5-large](https://huggingface.co/sdadas/mmlw-e5-large) | 52.63 | 63.25 | 39.84 | 39.9 | 70.94 | 36.47 | 34.03 | 47.33 | 85.63 | 19.13 | 71.21 | 71.18 |
+[mmlw-e5-base](https://huggingface.co/sdadas/mmlw-e5-base) | 50.06 | 58.4 | 37.19 | 34.53 | 66.25 | 32.54 | 33.71 | 44.6 | 84.44 | 17.35 | 68.29 | 73.33 |
+[mmlw-roberta-base](https://huggingface.co/sdadas/mmlw-roberta-base) | 49.92 | 59.02 | 36.22 | 35.01 | 66.64 | 33.05 | 34.14 | 45.65 | 84.44 | 17.84 | 65.75 | 71.33 |
+[multilingual-e5-large](https://huggingface.co/intfloat/multilingual-e5-large) | 48.98 | 53.02 | 35.82 | 33.0 | 67.41 | 33.38 | 30.24 | 52.79 | 83.65 | 13.81 | 65.66 | 70.03 |
+[multilingual-e5-base](https://huggingface.co/intfloat/multilingual-e5-base) | 44.01 | 42.81 | 30.23 | 25.52 | 63.52 | 29.52 | 25.98 | 44.8 | 81.22 | 12.35 | 62.11 | 66.06 |
+[mmlw-e5-small](https://huggingface.co/sdadas/mmlw-e5-small) | 42.83 | 54.31 | 30.28 | 29.75 | 57.14 | 25.94 | 27.6 | 33.83 | 81.15 | 14.79 | 58.14 | 58.2 |
+[multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small) | 42.43 | 37.43 | 29.27 | 22.03 | 60.15 | 26.94 | 26.48 | 40.46 | 78.7 | 11.6 | 62.76 | 70.92 |
+[st-polish-kartonberta-base-alpha-v1](https://huggingface.co/OrlikB/st-polish-kartonberta-base-alpha-v1) | 42.19 | 56.06 | 27.0 | 24.73 | 50.61 | 43.25 | 31.15 | 28.89 | 83.59 | 12.21 | 57.73 | 48.83 |
+[st-polish-paraphrase-from-mpnet](https://huggingface.co/sdadas/st-polish-paraphrase-from-mpnet) | 34.44 | 51.87 | 24.59 | 22.27 | 32.11 | 17.91 | 24.05 | 23.54 | 81.49 | 13.23 | 52.51 | 35.23 |
+[st-polish-paraphrase-from-distilroberta](https://huggingface.co/sdadas/st-polish-paraphrase-from-distilroberta) | 32.08 | 49.42 | 19.82 | 19.58 | 23.47 | 16.51 | 22.49 | 19.83 | 81.17 | 12.15 | 49.49 | 38.97 |
+[paraphrase-multilingual-mpnet-base-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-mpnet-base-v2) | 29.16 | 42.62 | 20.18 | 14.68 | 29.36 | 12.45 | 18.53 | 15.64 | 79.18 | 11.18 | 41.53 | 35.38 |
+[paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) | 26.66 | 37.83 | 18.0 | 12.49 | 22.76 | 10.39 | 17.16 | 12.56 | 77.18 | 10.26 | 40.24 | 34.38 |
+[LaBSE](https://huggingface.co/sentence-transformers/LaBSE) | 23.36 | 38.52 | 16.1 | 7.63 | 19.72 | 7.22 | 17.45 | 9.65 | 74.96 | 7.48 | 39.79 | 18.45 |
+[distiluse-base-multilingual-cased-v2](https://huggingface.co/sentence-transformers/distiluse-base-multilingual-cased-v2) | 21.18 | 36.7 | 12.36 | 8.02 | 20.83 | 4.57 | 16.28 | 5.85 | 71.95 | 6.5 | 33.03 | 16.91 |
+[herbert-base-retrieval-v2](https://huggingface.co/ipipan/herbert-base-retrieval-v2) | 39.16 | 41.97 | 24.07 | 24.25 | 43.41 | 51.56 | 25.95 | 35.09 | 78.86 | 11.0 | 51.92 | 42.64 |
+[silver-retriever-base-v1.1](https://huggingface.co/ipipan/silver-retriever-base-v1.1) | 37.59 | 41.72 | 23.69 | 22.07 | 38.51 | 46.32 | 24.48 | 34.65 | 77.15 | 10.87 | 49.69 | 44.31 | 
+
 
 ## Wnioski
 
